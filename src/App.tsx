@@ -45,14 +45,19 @@ export default function App() {
                     <Input id="url" {...form.register(`links.${index}.url`)}/>
                   </div>
     
-                  <Button variant='destructive'>
+                  <Button type="button" variant='destructive'>
                     <Trash2Icon className="size-4"/>
                   </Button>
                 </div>
               </div>
           ))}
 
-          <Button className="w-full border-dashed mt-6" variant='outline'>
+          <Button 
+            type="button"
+            className="w-full border-dashed mt-6" 
+            variant='outline'
+            onClick={() => links.append({ title: '', url: '' })}
+          >
             <PlusCircleIcon className="size-4 mr-1" />
             Adicionar novo Link
           </Button>
