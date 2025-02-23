@@ -59,6 +59,7 @@ export default function App() {
                     type="button" 
                     variant='destructive'
                     onClick={() => links.remove(index)}
+                    tabIndex={-1}
                   >
                     <Trash2Icon className="size-4"/>
                   </Button>
