@@ -2,7 +2,7 @@ import { PlusCircleIcon, Trash2Icon } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
 import { Label } from "./components/ui/label";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 
 export default function App() {
   const form = useForm({
@@ -20,7 +20,10 @@ export default function App() {
     }
   });
 
-  const links = form.watch('links');
+  const links = useFieldArray({
+    control: form.control,
+    name: 'links',
+  })
 
   return (
     <div className="grid place-items-center min-h-screen">
@@ -29,8 +32,8 @@ export default function App() {
 
         <form className="mt-10 flex flex-col gap-4">
 
-          {links.map((_, index) => (
-             <div key={index}className="flex gap-4">
+          {links.fields.map((link, index) => (
+             <div key={link.id}className="flex gap-4">
                 <div className="flex-1 space-y-2">
                   <Label htmlFor="title">Títulos</Label>
                   <Input id="title" {...form.register(`links.${index}.title`)}/>
