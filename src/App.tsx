@@ -45,7 +45,11 @@ export default function App() {
                     <Input id="url" {...form.register(`links.${index}.url`)}/>
                   </div>
     
-                  <Button type="button" variant='destructive'>
+                  <Button 
+                    type="button" 
+                    variant='destructive'
+                    onClick={() => links.remove(index)}
+                  >
                     <Trash2Icon className="size-4"/>
                   </Button>
                 </div>
