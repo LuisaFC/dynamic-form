@@ -28,9 +28,19 @@ export default function App() {
   return (
     <div className="grid place-items-center min-h-screen">
       <div className="w-full max-w-2xl">
-        <h1 className="text-2xl font-semibold tracking-tight">Links</h1>
+        <h1 className="text-2xl font-semibold tracking-tight mt-10">Links</h1>
 
-        <form className="mt-10 flex flex-col gap-4">
+        <Button 
+            type="button"
+            className="w-full border-dashed mb-6" 
+            variant='outline'
+            onClick={() => links.prepend({ title: '', url: '' })}
+          >
+            <PlusCircleIcon className="size-4 mr-1" />
+            Adicionar no topo da lista
+          </Button>
+
+        <form className=" flex flex-col gap-4">
 
           {links.fields.map((link, index) => (
              <div key={link.id}className="flex gap-4">
