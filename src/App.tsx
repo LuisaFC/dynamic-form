@@ -28,7 +28,7 @@ export default function App() {
   return (
     <div className="grid place-items-center min-h-screen">
       <div className="w-full max-w-2xl">
-        <h1 className="text-2xl font-semibold tracking-tight mt-10">Links</h1>
+        <h1 className="text-2xl font-semibold tracking-tight mt-10 mb-5">Links</h1>
 
         <Button 
             type="button"
@@ -76,6 +76,17 @@ export default function App() {
             <PlusCircleIcon className="size-4 mr-1" />
             Adicionar novo Link
           </Button>
+
+          <div className="flex gap-4">
+            <Button 
+              type="button" 
+              variant="secondary" 
+              className="flex-1"
+              onClick={() => links.insert(1, { title: '', url: '' })}
+            >
+              Insert
+            </Button>
+          </div>
         </form>
       </div>
     </div>
