@@ -86,6 +86,30 @@ export default function App() {
             >
               Insert
             </Button>
+            <Button 
+              type="button" 
+              variant="secondary" 
+              className="flex-1"
+              onClick={() => links.move(1,0)}
+            >
+              Move
+            </Button>
+            <Button 
+              type="button" 
+              variant="secondary" 
+              className="flex-1"
+              onClick={() => links.replace([{ title: 'Replace', url: 'https://facebook.com' }])}
+            >
+              Replace
+            </Button>
+            <Button 
+              type="button" 
+              variant="secondary" 
+              className="flex-1"
+              onClick={() => links.swap(1,0)}
+            >
+              Swap
+            </Button>
           </div>
         </form>
       </div>
