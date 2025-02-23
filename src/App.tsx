@@ -110,6 +110,18 @@ export default function App() {
             >
               Swap
             </Button>
+            <Button 
+              type="button" 
+              variant="secondary" 
+              className="flex-1"
+              onClick={() => {
+                //links.update(1, {title: 'Update', url: 'https://twitter.com'})
+                form.setValue('links.1.title', 'Update')
+                form.setValue('links.1.url', 'https://twitter.com')
+              }}
+            >
+              Update
+            </Button>
           </div>
         </form>
       </div>
