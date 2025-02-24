@@ -31,7 +31,10 @@ export default function App() {
   const [dragginIndex, setDragginIndex] = useState<null | number>(null)
 
   const handleSubmit = form.handleSubmit((data) => {
-    console.log(data)
+    console.log(data.links.map((link, index) => ({
+      ...link,
+      order: index + 1
+    })))
   })
 
   function hanldeDragStart(index: number){
@@ -42,8 +45,17 @@ export default function App() {
     setDragginIndex(null)
   }
 
-  function handleReorder(){
+  function handleReorder(newOrder: typeof links.fields){
+    if(dragginIndex === null) return
 
+    const draggingLink = links.fields[dragginIndex]
+
+    newOrder.forEach((link, index) =>{
+      if(link === draggingLink){
+        links.move(dragginIndex, index)
+        setDragginIndex(index)
+      }
+    })
   }
 
   return (
@@ -67,6 +79,7 @@ export default function App() {
             axis="y" //eixo
             values={links.fields} //array de valores
             onReorder={handleReorder}
+            className="space-y-4"
           >
             {links.fields.map((link, index) => (
               <Reorder.Item
@@ -74,6 +87,7 @@ export default function App() {
                 value={link}
                 onDragStart={() => hanldeDragStart(index)}
                 onDragEnd={handleDragEnd}
+                className="relative"
               >
                 <div 
                   className={cn(
