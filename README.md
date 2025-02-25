@@ -9,6 +9,7 @@ It uses React, react-hook-form, and framer-motion to create an interactive and r
 - React-Hook-Form
 - Framer Motion
 - Shadcn
+- Tailwind
 
 ## Installation
 
@@ -24,9 +25,9 @@ The main component of the project is the App component, located in App.tsx.
 
 ### Hooks and Libraries:
 
-- useForm and useFieldArray from react-hook-form to manage the form state.
-- Reorder from framer-motion to enable reordering of list items.
-- Custom components Button, Input, and Label from Shadcn.
+- **useForm** and **useFieldArray** from **react-hook-form** to manage the form state.
+- **Reorder** from **framer-motion** to enable reordering of list items.
+- Components Button, Input, and Label from **Shadcn**.
 
 ### Features
 - Add Link: Adds a new link to the top or the end of the list.
